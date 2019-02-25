@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import OnlineIcon from './OnlineIcon'
+import Person from './Person'
+import uuidv4 from 'uuid'
 
 export default class App extends Component {
   state = {
@@ -9,11 +10,17 @@ export default class App extends Component {
       { name: 'Ted', age: 44, isOnline: false }
     ]
   }
+  nameChangeHandler = e => {
+    this.setState({
+      name: e.target.value
+    })
+  }
+
   render() {
     return (
-      <div className="container">
-        <OnlineIcon />
-      </div>
+      <>
+        <Person nameChangeHandler={this.nameChangeHandler} />
+      </>
     )
   }
 }
